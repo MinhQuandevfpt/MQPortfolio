@@ -1,6 +1,6 @@
 import AboutMeMain from './components/aboutMeSection/AboutMeMain'
 import HelperSection from './components/HelperSection'
-import HeroMain from './components/heroSection/heroMain'
+import HeroMain from './components/heroSection/HeroMain'
 import SubHeroSection from './components/heroSection/SubHeroSection'
 import NavbarMain from './components/navbar/NavbarMain'
 import SkillsMain from './components/skillsSection/SkillsMain'

@@ -29,14 +29,14 @@ const backendSkills = [
 const AllSkills = () => {
     return (
         <div>
-            {/* Hàng icon frontend */}
+            
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
                 {frontendSkills.map((item, index) => (
                     <SingleSkill key={index} text={item.skill} imgSvg={item.icon} />
                 ))}
             </div>
 
-            {/* Hàng icon backend */}
+           
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
                 {backendSkills.map((item, index) => (
                     <SingleSkill key={index} text={item.skill} imgSvg={item.icon} />

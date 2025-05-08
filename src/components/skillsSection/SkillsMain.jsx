@@ -10,7 +10,7 @@ const SkillsMain = () => {
        
           <SkillsText />
        
-        <div className='mt-12'>
+        <div className='mt-16 translate-y-0 sm:-translate-y-20 lg:translate-y-5 transition-all'>
           <AllSkills />
         </div>
         

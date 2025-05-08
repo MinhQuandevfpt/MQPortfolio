@@ -4,7 +4,7 @@ import aboutMeAnimation from '../../assets/animation/programmer.json';
 const AboutMeImage = () => {
   return (
     <div className="h-[500px] w-[300px] relative sm:h-[500px] sm:w-[300px]">
-      <div className="h-[500px] w-[300px] rounded-[100px] absolute overflow-hidden translate-y-0 sm:-translate-y-28 lg:translate-y-5 transition-all duration-300">
+      <div className="h-[500px] w-[300px] rounded-[100px] absolute overflow-hidden translate-y-0 sm:-translate-y-28 lg:translate-y-1 transition-all duration-300 ">
         <Lottie
           animationData={aboutMeAnimation}
           loop={true}

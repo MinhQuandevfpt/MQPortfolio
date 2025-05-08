@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #0571ed, #ffffff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; 
+  scroll-behavior: smooth;
+  
+}
+
+/* Dark mode background */
+html.dark body {
+  background-image: linear-gradient(to bottom, #212734, #080808);
+}

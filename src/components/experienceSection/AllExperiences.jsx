@@ -1,5 +1,6 @@
 import SingleExperience from "./SingleExperience";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { StaggerContainer, StaggerItem } from '../AnimationWrapper';
 
 const experiences = [
     {
@@ -37,21 +38,22 @@ const experiences = [
 
 const AllExperiences = () => {
     return (
-        <div className="flex md:flex-row sm:flex-col items-center justify-between translate-y-0 sm:-translate-y-28 lg:translate-y-1 transition-all">
+        <StaggerContainer className="flex md:flex-row sm:flex-col items-center justify-between translate-y-0 sm:-translate-y-28 lg:translate-y-1 transition-all">
             {experiences.map((experience, index) => {
                 return (
-                    <>
-                        <SingleExperience key={index} experience={experience} />
+                    <div key={index} className="flex items-center">
+                        <StaggerItem>
+                            <SingleExperience experience={experience} />
+                        </StaggerItem>
                         {index < 2 ? (
-                            <FaArrowRightLong className="text-6xl text-orange-500 lg:block sm:hidden" />
-                        ) : (
-                            ""
-                        )}
-
-                    </>
+                            <StaggerItem>
+                                <FaArrowRightLong className="text-6xl text-orange-500 lg:block sm:hidden mx-4" />
+                            </StaggerItem>
+                        ) : null}
+                    </div>
                 )
             })}
-        </div>
+        </StaggerContainer>
     )
 }
 

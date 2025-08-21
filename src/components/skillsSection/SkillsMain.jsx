@@ -1,5 +1,6 @@
 import SkillsText from './SkillsText'
 import AllSkills from './AllSkills'
+import { FadeInUp } from '../AnimationWrapper'
 
 
 
@@ -8,11 +9,13 @@ const SkillsMain = () => {
     <div id="skills">
       <div className="max-w-[1200px] px-4 mx-auto min-h-[600px] relative overflow-hidden -mt-28">
        
-          <SkillsText />
+          <FadeInUp delay={0.2}>
+            <SkillsText />
+          </FadeInUp>
        
-        <div className='mt-16 translate-y-0 sm:-translate-y-20 lg:translate-y-5 transition-all'>
+        <FadeInUp delay={0.4} className='mt-16 translate-y-0 sm:-translate-y-20 lg:translate-y-5 transition-all'>
           <AllSkills />
-        </div>
+        </FadeInUp>
         
       </div>
     </div>

@@ -3,6 +3,7 @@ import { IoLogoJavascript } from "react-icons/io";
 import { SiTypescript, SiRedux, SiNextdotjs, SiMongodb, SiExpress, SiNodedotjs, SiGit, SiDocker, SiMysql, SiPostgresql, SiRedis } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import SingleSkill from './SingleSkill';
+import { StaggerContainer, StaggerItem } from '../AnimationWrapper';
 
 const frontendSkills = [
     { skill: "HTML", icon: <FaHtml5 color="#e34c26" size={60} /> },
@@ -30,18 +31,22 @@ const AllSkills = () => {
     return (
         <div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
+            <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
                 {frontendSkills.map((item, index) => (
-                    <SingleSkill key={index} text={item.skill} imgSvg={item.icon} />
+                    <StaggerItem key={index}>
+                        <SingleSkill text={item.skill} imgSvg={item.icon} />
+                    </StaggerItem>
                 ))}
-            </div>
+            </StaggerContainer>
 
            
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
+            <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-[1200px] mx-auto mb-10">
                 {backendSkills.map((item, index) => (
-                    <SingleSkill key={index} text={item.skill} imgSvg={item.icon} />
+                    <StaggerItem key={index}>
+                        <SingleSkill text={item.skill} imgSvg={item.icon} />
+                    </StaggerItem>
                 ))}
-            </div>
+            </StaggerContainer>
         </div>
     );
 };

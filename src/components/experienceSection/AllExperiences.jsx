@@ -38,7 +38,7 @@ const experiences = [
 
 const AllExperiences = () => {
     return (
-        <StaggerContainer className="flex md:flex-row sm:flex-col items-center justify-between translate-y-0 sm:-translate-y-28 lg:translate-y-1 transition-all">
+        <StaggerContainer className="flex md:flex-row sm:flex-col items-center justify-between translate-y-0 lg:translate-y-1 transition-all">
             {experiences.map((experience, index) => {
                 return (
                     <div key={index} className="flex items-center">

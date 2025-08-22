@@ -6,7 +6,7 @@ import { FadeInUp } from '../AnimationWrapper'
 
 const SkillsMain = () => {
   return (
-    <div id="skills">
+    <div id="skills" className="mb-20 sm:mb-10 lg:mb-0">
       <div className="max-w-[1200px] px-4 mx-auto min-h-[600px] relative overflow-hidden -mt-28">
        
           <FadeInUp delay={0.2}>

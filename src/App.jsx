@@ -1,7 +1,8 @@
 import AboutMeMain from './components/aboutMeSection/AboutMeMain'
 import ExperienceMain from './components/experienceSection/ExperienceMain'
 import ProjectsMain from './components/projectsSection/ProjectsMain'
-import HelperSection from './components/HelperSection'
+import ContactMain from './components/contactSection/ContactMain'
+import Footer from './components/Footer'
 import HeroMain from './components/heroSection/HeroMain'
 import SubHeroSection from './components/heroSection/SubHeroSection'
 import NavbarMain from './components/navbar/NavbarMain'
@@ -32,7 +33,8 @@ function App() {
       <SkillsMain/>
       <ExperienceMain />
       <ProjectsMain />
-      <HelperSection/> 
+      <ContactMain />
+      <Footer />
 
     </motion.main>
   )

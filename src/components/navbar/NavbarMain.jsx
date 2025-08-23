@@ -24,7 +24,7 @@ const NavbarMain = () => {
 ">
         <NavbarLogo />
         <div className={`${menuOpen ? "sm:block" : "sm:hidden"} lg:block`}>
-          <NavbarLinks />
+          <NavbarLinks closeMenu={() => setMenuOpen(false)} />
         </div>
         <ThemeToggle />
       </motion.div>

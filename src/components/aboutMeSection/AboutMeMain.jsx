@@ -4,7 +4,7 @@ import { FadeInLeft, FadeInRight } from '../AnimationWrapper'
 
 const AboutMeMain = () => {
   return (
-    <div className="flex md:flex-row sm:flex-col gap-12 px-4 max-w-[1200px] mx-auto mt-[100px] justify-between items-center">
+    <div id="about" className="flex md:flex-row sm:flex-col gap-12 px-4 max-w-[1200px] mx-auto mt-[100px] justify-between items-center">
         <FadeInLeft delay={0.2}>
             <AboutMeText />
         </FadeInLeft>

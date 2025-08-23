@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { FaPaperPlane, FaUser, FaEnvelope, FaComment } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
+import { emailjsConfig } from '../../config/emailjs'
 
 const ContactForm = () => {
+  const form = useRef()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,15 +25,39 @@ const ContactForm = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Check if EmailJS is configured
+    if (!emailjsConfig.serviceId || !emailjsConfig.templateId || !emailjsConfig.publicKey) {
+      console.error('EmailJS not configured properly')
+      setSubmitStatus('error')
       setIsSubmitting(false)
+      return
+    }
+    
+    try {
+      // Gửi email thông qua EmailJS
+      const result = await emailjs.sendForm(
+        emailjsConfig.serviceId,   // Service ID
+        emailjsConfig.templateId,  // Template ID  
+        form.current,              // Form reference
+        emailjsConfig.publicKey    // Public Key
+      )
+      
+      console.log('Email sent successfully:', result.text)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
       
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus(null), 3000)
-    }, 2000)
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+      
+    } catch (error) {
+      console.error('Email sending failed:', error.text)
+      setSubmitStatus('error')
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -44,7 +71,7 @@ const ContactForm = () => {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form ref={form} onSubmit={handleSubmit} className="space-y-6">
         {/* Name Field */}
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -112,18 +139,18 @@ const ContactForm = () => {
           disabled={isSubmitting}
           className={`w-full py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
             isSubmitting
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 transform hover:scale-105'
+              ? 'bg-gray-400 cursor-not-allowed scale-95'
+              : 'bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 transform hover:scale-105 active:scale-95'
           } text-white shadow-lg hover:shadow-xl`}
         >
           {isSubmitting ? (
             <>
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              <span>Sending...</span>
+              <span>Sending Email...</span>
             </>
           ) : (
             <>
-              <FaPaperPlane className="h-5 w-5" />
+              <FaPaperPlane className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               <span>Send Message</span>
             </>
           )}
@@ -132,8 +159,16 @@ const ContactForm = () => {
         {/* Success Message */}
         {submitStatus === 'success' && (
           <div className="text-center p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg">
-            <p className="font-semibold">Message sent successfully!</p>
-            <p className="text-sm">I'll get back to you within 24 hours.</p>
+            <p className="font-semibold">✅ Message sent successfully!</p>
+            <p className="text-sm">Thank you for contacting me. I'll get back to you within 24 hours.</p>
+          </div>
+        )}
+
+        {/* Error Message */}
+        {submitStatus === 'error' && (
+          <div className="text-center p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg">
+            <p className="font-semibold">❌ Failed to send message</p>
+            <p className="text-sm">Please try again or contact me directly via email.</p>
           </div>
         )}
       </form>

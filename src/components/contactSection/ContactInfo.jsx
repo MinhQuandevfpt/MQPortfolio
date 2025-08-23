@@ -1,25 +1,29 @@
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook , FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
+import { myLocation, personalInfo } from '../../config/personal'
 
 const ContactInfo = () => {
   const contactDetails = [
     {
       icon: <FaEnvelope className="text-2xl" />,
       title: "Email",
-      info: "quankontum55555@gmail.com",
-      link: "mailto:quankontum55555@gmail.com"
+      info: personalInfo.email,
+      link: `mailto:${personalInfo.email}`,
+      external: false
     },
     {
       icon: <FaPhone className="text-2xl" />,
       title: "Phone",
-      info: "+84 342 065 777",
-      link: "tel:+84342065777"
+      info: personalInfo.phone,
+      link: `tel:${personalInfo.phoneFormatted}`,
+      external: false
     },
     {
       icon: <FaMapMarkerAlt className="text-2xl" />,
       title: "Location",
-      info: "Ho Chi Minh City, Vietnam",
-      link: "#"
+      info: myLocation.name,
+      link: myLocation.getUrl(),
+      external: true
     }
   ]
 
@@ -27,25 +31,25 @@ const ContactInfo = () => {
     {
       icon: <FaFacebook className="text-xl" />,
       name: "Facebook",
-      url: "https://www.facebook.com/minh.quan.132244?locale=vi_VN",
+      url: personalInfo.social.facebook,
       color: "hover:text-blue-600"
     },
     {
       icon: <FaGithub className="text-xl" />,
       name: "GitHub", 
-      url: "https://github.com/MinhQuandevfpt",
+      url: personalInfo.social.github,
       color: "hover:text-gray-700 dark:hover:text-white"
     },
     {
       icon: <FaTwitter className="text-xl" />,
       name: "Twitter",
-      url: "https://twitter.com/yourhandle",
+      url: personalInfo.social.twitter,
       color: "hover:text-blue-400"
     },
     {
       icon: <FaInstagram className="text-xl" />,
       name: "Instagram",
-      url: "https://instagram.com/yourhandle",
+      url: personalInfo.social.instagram,
       color: "hover:text-pink-500"
     }
   ]
@@ -68,6 +72,8 @@ const ContactInfo = () => {
           <a
             key={index}
             href={detail.link}
+            target={detail.external ? "_blank" : "_self"}
+            rel={detail.external ? "noopener noreferrer" : undefined}
             className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
           >
             <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
@@ -76,6 +82,7 @@ const ContactInfo = () => {
             <div>
               <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
                 {detail.title}
+                {detail.external && <span className="ml-1 text-xs">↗</span>}
               </h4>
               <p className="text-gray-600 dark:text-gray-400">
                 {detail.info}

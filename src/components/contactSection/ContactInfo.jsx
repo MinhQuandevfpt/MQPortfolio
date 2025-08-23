@@ -1,4 +1,4 @@
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook , FaGithub, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
 
 const ContactInfo = () => {
@@ -25,9 +25,9 @@ const ContactInfo = () => {
 
   const socialLinks = [
     {
-      icon: <FaLinkedin className="text-xl" />,
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/yourprofile",
+      icon: <FaFacebook className="text-xl" />,
+      name: "Facebook",
+      url: "https://www.facebook.com/minh.quan.132244?locale=vi_VN",
       color: "hover:text-blue-600"
     },
     {

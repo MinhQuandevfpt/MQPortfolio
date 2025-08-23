@@ -1,4 +1,4 @@
-import { FaHeart, FaReact, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaHeart, FaReact, FaGithub, FaFacebook } from 'react-icons/fa'
 import { SiTailwindcss } from 'react-icons/si'
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-blue-400 mb-4">TTMQ</h3>
             <p className="text-gray-300 leading-relaxed">
-              Front-End Developer & Course Instructor passionate about creating amazing web experiences 
+              Front-End Developer passionate about creating amazing web experiences 
               with modern technologies.
             </p>
           </div>
@@ -39,22 +39,23 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-2 text-gray-300">
-              <p>ttmq.dev@gmail.com</p>
+              <p>quankontum55555@gmail.com</p>
               <p>Ho Chi Minh City, Vietnam</p>
               <div className="flex space-x-4 mt-4">
                 <a 
-                  href="https://github.com/yourusername" 
+                  href="https://github.com/MinhQuandevfpt" 
                   className="hover:text-blue-400 transition-colors"
                   aria-label="GitHub"
                 >
                   <FaGithub className="text-xl" />
                 </a>
+               
                 <a 
-                  href="https://linkedin.com/in/yourprofile" 
+                  href="https://www.facebook.com/minh.quan.132244?locale=vi_VN" 
                   className="hover:text-blue-400 transition-colors"
-                  aria-label="LinkedIn"
+                  aria-label="Facebook"
                 >
-                  <FaLinkedin className="text-xl" />
+                  <FaFacebook className="text-xl" />
                 </a>
               </div>
             </div>
@@ -63,24 +64,7 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-gray-700 pt-8">
-          {/* Built With */}
-          <div className="flex flex-wrap items-center justify-center space-x-6 mb-6">
-            <span className="text-gray-400 text-sm">Built with:</span>
-            <div className="flex items-center space-x-2">
-              <FaReact className="text-blue-400" />
-              <span className="text-sm text-gray-300">React</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <SiTailwindcss className="text-cyan-400" />
-              <span className="text-sm text-gray-300">Tailwind CSS</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaHeart className="text-red-400" />
-              <span className="text-sm text-gray-300">Passion</span>
-            </div>
-          </div>
-
-          {/* Copyright */}
+        
           <div className="text-center text-gray-400 text-sm">
             <p>© {currentYear} TTMQ Portfolio. All rights reserved.</p>
             <p className="mt-1">
